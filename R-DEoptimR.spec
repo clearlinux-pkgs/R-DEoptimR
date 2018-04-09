@@ -4,7 +4,7 @@
 #
 Name     : R-DEoptimR
 Version  : 1.0.8
-Release  : 3
+Release  : 4
 URL      : https://cran.r-project.org/src/contrib/DEoptimR_1.0-8.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/DEoptimR_1.0-8.tar.gz
 Summary  : Differential Evolution Optimization in Pure R
@@ -30,11 +30,11 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1521189741
+export SOURCE_DATE_EPOCH=1523299779
 
 %install
 rm -rf %{buildroot}
-export SOURCE_DATE_EPOCH=1521189741
+export SOURCE_DATE_EPOCH=1523299779
 export LANG=C
 export CFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
 export FCFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
