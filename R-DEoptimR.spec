@@ -4,7 +4,7 @@
 #
 Name     : R-DEoptimR
 Version  : 1.0.8
-Release  : 16
+Release  : 17
 URL      : https://cran.r-project.org/src/contrib/DEoptimR_1.0-8.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/DEoptimR_1.0-8.tar.gz
 Summary  : Differential Evolution Optimization in Pure R
@@ -12,7 +12,7 @@ Group    : Development/Tools
 License  : GPL-2.0+
 Requires: R-DEoptim
 BuildRequires : R-DEoptim
-BuildRequires : clr-R-helpers
+BuildRequires : buildreq-R
 
 %description
 optimization of problems with and without constraints.
@@ -30,11 +30,11 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1523299779
+export SOURCE_DATE_EPOCH=1552787812
 
 %install
+export SOURCE_DATE_EPOCH=1552787812
 rm -rf %{buildroot}
-export SOURCE_DATE_EPOCH=1523299779
 export LANG=C
 export CFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
 export FCFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
@@ -69,8 +69,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export _R_CHECK_FORCE_SUGGESTS_=false
-R CMD check --no-manual --no-examples --no-codoc -l %{buildroot}/usr/lib64/R/library DEoptimR|| : 
-cp ~/.stash/* %{buildroot}/usr/lib64/R/library/*/libs/ || :
+R CMD check --no-manual --no-examples --no-codoc  DEoptimR || :
 
 
 %files
@@ -95,4 +94,5 @@ cp ~/.stash/* %{buildroot}/usr/lib64/R/library/*/libs/ || :
 /usr/lib64/R/library/DEoptimR/help/paths.rds
 /usr/lib64/R/library/DEoptimR/html/00Index.html
 /usr/lib64/R/library/DEoptimR/html/R.css
+/usr/lib64/R/library/DEoptimR/tests/JDEoptim-tst.R
 /usr/lib64/R/library/DEoptimR/xtraR/opt-test-funs.R
