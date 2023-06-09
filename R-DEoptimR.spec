@@ -4,10 +4,10 @@
 # Using build pattern: R
 #
 Name     : R-DEoptimR
-Version  : 1.0.13
-Release  : 51
-URL      : https://cran.r-project.org/src/contrib/DEoptimR_1.0-13.tar.gz
-Source0  : https://cran.r-project.org/src/contrib/DEoptimR_1.0-13.tar.gz
+Version  : 1.0.14
+Release  : 52
+URL      : https://cran.r-project.org/src/contrib/DEoptimR_1.0-14.tar.gz
+Source0  : https://cran.r-project.org/src/contrib/DEoptimR_1.0-14.tar.gz
 Summary  : Differential Evolution Optimization in Pure R
 Group    : Development/Tools
 License  : GPL-2.0+
@@ -26,16 +26,19 @@ optimization of problems with and without constraints.
 
 %prep
 %setup -q -n DEoptimR
+pushd ..
+cp -a DEoptimR buildavx2
+popd
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1683146865
+export SOURCE_DATE_EPOCH=1686354113
 
 %install
-export SOURCE_DATE_EPOCH=1683146865
+export SOURCE_DATE_EPOCH=1686354113
 rm -rf %{buildroot}
 export LANG=C.UTF-8
 export CFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
@@ -73,6 +76,7 @@ export no_proxy=localhost,127.0.0.1,0.0.0.0
 export _R_CHECK_FORCE_SUGGESTS_=false
 R CMD check --no-manual --no-examples --no-codoc . || :
 
+/usr/bin/elf-move.py avx2 %{buildroot}-v3 %{buildroot} %{buildroot}/usr/share/clear/filemap/filemap-%{name}
 
 %files
 %defattr(-,root,root,-)
