@@ -4,10 +4,10 @@
 # Using build pattern: R
 #
 Name     : R-DEoptimR
-Version  : 1.0.14
-Release  : 53
-URL      : https://cran.r-project.org/src/contrib/DEoptimR_1.0-14.tar.gz
-Source0  : https://cran.r-project.org/src/contrib/DEoptimR_1.0-14.tar.gz
+Version  : 1.1.0
+Release  : 54
+URL      : https://cran.r-project.org/src/contrib/DEoptimR_1.1-0.tar.gz
+Source0  : https://cran.r-project.org/src/contrib/DEoptimR_1.1-0.tar.gz
 Summary  : Differential Evolution Optimization in Pure R
 Group    : Development/Tools
 License  : GPL-2.0+
@@ -17,12 +17,12 @@ BuildRequires : buildreq-R
 %define debug_package %{nil}
 
 %description
-optimization of problems with and without constraints.
-    The aim is to curate a collection of its state-of-the-art variants that
+global optimization of problems with and without general constraints.
+    The aim is to curate a collection of its variants that
     (1) do not sacrifice simplicity of design,
     (2) are essentially tuning-free, and
     (3) can be efficiently implemented directly in the R language.
-    Currently, it only provides an implementation of the 'jDE' algorithm by
+    Currently, it provides implementations of the algorithms 'jDE' by
 
 %prep
 %setup -q -n DEoptimR
@@ -35,10 +35,10 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1686354113
+export SOURCE_DATE_EPOCH=1689262810
 
 %install
-export SOURCE_DATE_EPOCH=1686354113
+export SOURCE_DATE_EPOCH=1689262810
 rm -rf %{buildroot}
 export LANG=C.UTF-8
 export CFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
@@ -101,4 +101,5 @@ R CMD check --no-manual --no-examples --no-codoc . || :
 /usr/lib64/R/library/DEoptimR/html/00Index.html
 /usr/lib64/R/library/DEoptimR/html/R.css
 /usr/lib64/R/library/DEoptimR/tests/JDEoptim-tst.R
+/usr/lib64/R/library/DEoptimR/tests/NCDEoptim-tst.R
 /usr/lib64/R/library/DEoptimR/xtraR/opt-test-funs.R
