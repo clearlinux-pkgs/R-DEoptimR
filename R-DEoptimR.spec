@@ -5,7 +5,7 @@
 #
 Name     : R-DEoptimR
 Version  : 1.1.3
-Release  : 58
+Release  : 59
 URL      : https://cran.r-project.org/src/contrib/DEoptimR_1.1-3.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/DEoptimR_1.1-3.tar.gz
 Summary  : Differential Evolution Optimization in Pure R
